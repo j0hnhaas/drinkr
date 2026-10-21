@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import {
-  IonApp, IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
+  IonApp, IonPage, IonHeader, IonToolbar, IonContent,
   IonButton, IonIcon, IonSegment, IonSegmentButton, IonLabel,
   IonCard, IonCardContent
 } from "@ionic/react";

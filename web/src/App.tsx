@@ -105,7 +105,7 @@ export default function App(){
   const at=selected??now;
   const bac=points.length?valueAt(points,at):null;
   const period=at>now+60_000?"Prognose":at<now-60_000?"Vergangenheit":"Jetzt";
-  const changeSex=(s:"male"|"female")=>{setSex(s);setWeight(s==="male"?80:70);setHeight(s==="male"?180:165);};
+  const changeSex=(s:"male"|"female")=>{if(s===sex)return;setSex(s);setWeight(s==="male"?80:70);setHeight(s==="male"?180:165);};
   const saveBody=()=>{
     if(!sex||weight<35||weight>250||height<120||height>230)return;
     const p={...(profile??DEFAULT_PARAMETERS),profile:sex,weightKg:weight,heightCm:height};
@@ -172,9 +172,9 @@ export default function App(){
           <section className="service-card" key={c}><span className="service-number">{i+1}</span><h2>{c}</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Wissenschaftlich überprüfte Inhalte folgen.</p><small>In Vorbereitung</small></section>)}</div>
       </main>:<main className="home">
         <div className="person-strip">
-          <button onClick={editBody}><small>Modellprofil</small><b>{profile?(profile.profile==="male"?"Männlich":"Weiblich"):"—"}</b><IonIcon icon={pencilOutline}/></button>
-          <button onClick={editBody}><small>Gewicht</small><b>{profile?profile.weightKg+" kg":"—"}</b><IonIcon icon={pencilOutline}/></button>
-          <button onClick={editBody}><small>Größe</small><b>{profile?profile.heightCm+" cm":"—"}</b><IonIcon icon={pencilOutline}/></button>
+          <button onClick={editBody} disabled={!profile}><small>Modellprofil</small><b>{profile?(profile.profile==="male"?"Männlich":"Weiblich"):"—"}</b><IonIcon icon={pencilOutline}/></button>
+          <button onClick={editBody} disabled={!profile}><small>Gewicht</small><b>{profile?profile.weightKg+" kg":"—"}</b><IonIcon icon={pencilOutline}/></button>
+          <button onClick={editBody} disabled={!profile}><small>Größe</small><b>{profile?profile.heightCm+" cm":"—"}</b><IonIcon icon={pencilOutline}/></button>
         </div>
         <section className={"model-stage"+(!profile?" setup-pending":"")}>
           <div className="results-card">
@@ -188,9 +188,9 @@ export default function App(){
             <div className="plot-heading"><div><b>Verlauf</b><small>Punkt antippen · 15-Min.-Raster</small></div><span>━ Bisher &nbsp;┄ Prognose</span></div>
             {points.length?<Curve points={points} now={now} selected={selected} onSelected={t=>setSelected(Math.max(now-4*HOUR,Math.min(now+4*HOUR,t)))}/>:<GhostCurve/>}
             <div className="time-controls">
-              <button disabled={!points.length} onClick={()=>setSelected(snap((selected??now)-STEP))}>−15 min</button>
+              <button disabled={!points.length} onClick={()=>setSelected(Math.max(now-4*HOUR,snap((selected??now)-STEP)))}>−15 min</button>
               <button disabled={!points.length} onClick={()=>setSelected(null)}>Jetzt · {clock(now)}</button>
-              <button disabled={!points.length} onClick={()=>setSelected(snap((selected??now)+STEP))}>+15 min</button>
+              <button disabled={!points.length} onClick={()=>setSelected(Math.min(now+4*HOUR,snap((selected??now)+STEP)))}>+15 min</button>
             </div>
             {drinks.length>0&&<button className="history-link" onClick={()=>setOverlay("history")}>{drinks.length} Getränke erfasst <IonIcon icon={chevronForwardOutline}/></button>}
           </div>

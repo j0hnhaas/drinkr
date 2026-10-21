@@ -1,7 +1,13 @@
-.Rproj.user
+# RStudio and the historical Shiny projects
 .Rhistory
 .RData
-articles
-blog_posts
-./scratchpad.R
-shinyapps
+.Ruserdata
+.Rproj.user/
+# Ionic/Vite output
+web/node_modules/
+web/dist/
+web/.vite/
+web/*.tsbuildinfo
+web/tsconfig.*.tsbuildinfo
+# Local
+.DS_Store

@@ -1,0 +1,140 @@
+:root {
+  --ion-font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ion-background-color: #f4f8fb;
+  --ion-text-color: #112d3c;
+  --ion-color-primary: #0b788d;
+  --ion-color-primary-rgb: 11, 120, 141;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #0a6a7c;
+  --ion-color-primary-tint: #238698;
+  --ion-toolbar-background: #0e2737;
+  --drinkr-ink: #112d3c;
+  --drinkr-muted: #657987;
+  --drinkr-accent: #0b788d;
+  --drinkr-border: #e1eaf0;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+ion-content { --background: #f4f8fb; }
+.app-toolbar { --background: #0e2737; --color: white; --min-height: 69px; padding-inline: max(12px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-right)); }
+.brand { display: flex; align-items: center; gap: 12px; padding-left: 8px; font-size: 24px; font-weight: 800; letter-spacing: -.06em; }
+.brand-mark { background: #19475b; border-radius: 13px; display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; color: #85e5db; font-size: 22px; }
+.brand-accent { color: #83ded4; }
+.brand small { display: block; color: #99b7c5; font-size: 9px; font-weight: 700; letter-spacing: .14em; margin-top: -3px; }
+.app-edition { display: inline-flex; align-items: center; margin-right: 16px; color: #bed7df; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+.page-wrap { max-width: 1190px; margin: auto; padding: 27px 20px 60px; }
+.page-intro { max-width: 710px; margin: 6px 0 25px; }
+.page-intro h1 { font-size: clamp(26px, 4vw, 40px); letter-spacing: -.045em; line-height: 1.16; margin: 8px 0 13px; font-weight: 780; color: #103040; }
+.page-intro p { line-height: 1.6; color: var(--drinkr-muted); margin: 0; font-size: 15px; }
+.eyebrow { font-size: 11px; font-weight: 780; letter-spacing: .15em; color: #0b8194; text-transform: uppercase; }
+.app-nav { margin-bottom: 20px; }
+.app-nav ion-segment { max-width: 440px; --background: #e9f1f5; padding: 4px; border-radius: 14px; background: #e9f1f5; }
+.app-nav ion-segment-button { --color: #476370; --color-checked: #103a4b; --background-checked: #fff; --indicator-color: #fff; --border-radius: 11px; font-size: 13px; font-weight: 750; min-height: 40px; text-transform: none; }
+ion-card.panel { margin: 0; --background: #fff; background: #fff; color: var(--drinkr-ink); border: 1px solid var(--drinkr-border); box-shadow: 0 10px 28px rgb(36 85 113 / 5%); border-radius: 20px; }
+ion-card.panel ion-card-content { padding: 24px; font-size: 14px; }
+.panel-top { display: flex; align-items: start; justify-content: space-between; gap: 16px; margin-bottom: 17px; }
+.panel-top h2, .info-panel h2, .panel h2 { font-size: clamp(19px, 2.5vw, 23px); line-height: 1.24; letter-spacing: -.025em; color: #143346; font-weight: 760; margin: 5px 0 0; }
+.chart-panel { margin-bottom: 20px !important; }
+.hint-pill, .count-pill { flex: none; font-size: 12px; font-weight: 700; border-radius: 100px; background: #eaf4f8; color: #0a758c; padding: 8px 13px; }
+.count-pill { min-width: 34px; text-align: center; }
+.estimate { text-align: center; padding: 15px 0 12px; }
+.estimate-label { color: #617c89; font-size: 10px; font-weight: 760; letter-spacing: .16em; }
+.estimate-number { color: #0e526a; font-weight: 790; letter-spacing: -.07em; font-size: clamp(56px, 11vw, 76px); line-height: 1.12; font-variant-numeric: tabular-nums; }
+.estimate-number span { font-size: .49em; font-weight: 640; margin-left: 8px; color: #178ca0; }
+.estimate p { font-size: 12px; color: #718692; margin: 0; }
+.graph-container { width: 100%; height: clamp(220px, 30vw, 315px); margin-top: 17px; min-width: 0; }
+.chart-key { display: flex; justify-content: center; gap: 23px; flex-wrap: wrap; color: #5c7481; font-size: 11px; margin: 12px 0 18px; }
+.chart-key > span { display: inline-flex; align-items: center; gap: 8px; }
+.line-key { width: 24px; border-top: 3px solid #168b9f; }
+.line-key.dashed { border-top-style: dashed; }
+.science-note { border-radius: 12px; background: #f0f7fa; color: #486676; padding: 11px 13px; display: flex; align-items: start; gap: 10px; font-size: 12px; line-height: 1.5; }
+.science-note ion-icon { font-size: 19px; flex: none; color: #227d97; }
+.two-column { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 20px; }
+.right-stack { min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.panel-symbol { font-size: 24px; color: #1c8496; }
+.drink-picker { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0; }
+.drink-tile { font: inherit; font-weight: 690; padding: 17px 8px 14px; border: 1.5px solid #e0e9ef; border-radius: 14px; cursor: pointer; min-width: 0; background: #fbfdfe; color: #314c5b; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: background 120ms, border-color 120ms, transform 120ms; }
+.drink-tile:hover { background: #f0f9fb; transform: translateY(-1px); }
+.drink-tile:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #eb9f57; outline-offset: 3px; }
+.drink-tile.selected { border-color: #168ea1; background: #e7f6f8; color: #0b566a; box-shadow: 0 0 0 1px #168ea1 inset; }
+.drink-icon { font-size: 27px; line-height: 1.3; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 15px 0; }
+label, .full-input { font-size: 12px; font-weight: 700; color: #4e6776; display: block; }
+input:not([type="range"]), select { width: 100%; margin-top: 8px; min-height: 46px; border-radius: 10px; border: 1px solid #d9e5ec; background: #fff; color: #123544; padding: 11px 12px; font-family: inherit; font-size: 15px; }
+input[type="datetime-local"] { min-width: 0; }
+.full-input { margin: 16px 0 18px; }
+.primary-action { margin-top: 20px; --border-radius: 12px; height: 49px; font-weight: 760; text-transform: none; --box-shadow: none; }
+.logged-drink { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 14px 0; border-bottom: 1px solid #eaf0f4; }
+.logged-drink:last-child { border-bottom: 0; }
+.logged-detail { display: flex; flex-direction: column; min-width: 0; gap: 4px; }
+.logged-detail strong { color: #204356; font-size: 14px; }
+.logged-detail span { font-size: 12px; line-height: 1.5; color: #758893; }
+.logged-drink ion-button { --color: #8e6870; flex: none; }
+.empty-message { border: 1px dashed #d7e7ee; border-radius: 12px; padding: 20px; background: #f8fbfd; color: #778c98; font-size: 13px; line-height: 1.6; }
+.reset-button { --color: #9b5864; margin: 12px 0 0; }
+.model-settings summary { display: flex; align-items: center; gap: 11px; cursor: pointer; list-style: none; color: #244658; font-size: 14px; }
+.model-settings summary::-webkit-details-marker { display: none; }
+.model-settings summary ion-icon { color: #0e8398; font-size: 19px; }
+.model-settings summary span { margin-left: auto; font-size: 10px; color: #8a9eaa; }
+.model-settings[open] summary span { transform: rotate(180deg); }
+.model-settings label { margin: 16px 0; }
+.setting-help { font-size: 12px; line-height: 1.6; color: #81939d; margin: 14px 0; }
+.range-label b { float: right; font-variant-numeric: tabular-nums; color: #0d6477; }
+input[type="range"] { display: block; width: 100%; margin: 15px 0 2px; accent-color: #0b8293; }
+.model-settings ion-button { --color: #0a7387; margin-top: 8px; }
+.form-error { font-size: 13px; color: #9e2e40; line-height: 1.5; }
+.back-action { margin-top: 20px; --border-radius: 10px; text-transform: none; }
+.info-panel { max-width: 830px; }
+.info-panel h2 { margin: 7px 0 15px; }
+.info-panel h3 { font-size: 16px; color: #23495d; margin: 26px 0 9px; }
+.info-panel p { font-size: 14px; line-height: 1.75; color: #576e7a; margin: 0 0 15px; }
+.info-panel ion-button { margin-top: 15px; text-transform: none; }
+.app-footer { color: #728894; font-size: 11px; max-width: 800px; margin: 29px auto 0; text-align: center; line-height: 1.65; }
+.app-footer strong { color: #ad6a50; }
+.app-footer span { display: block; margin-top: 8px; }
+@media (max-width: 780px) {
+  .page-wrap { padding: 20px 14px 45px; }
+  .page-intro { margin-top: 0; margin-bottom: 20px; }
+  .two-column { grid-template-columns: 1fr; }
+  ion-card.panel ion-card-content { padding: 19px; }
+  .graph-container { height: 240px; }
+  .chart-key { gap: 12px; }
+  .science-note { font-size: 11px; }
+}
+@media (max-width: 420px) {
+  .page-intro h1 { font-size: 28px; }
+  .drink-picker { gap: 8px; }
+  .drink-tile { padding: 12px 3px; font-size: 11px; }
+  .drink-icon { font-size: 24px; }
+  ion-card.panel ion-card-content { padding: 15px; }
+  .panel-top h2 { font-size: 19px; }
+  .graph-container { height: 215px; }
+  .chart-key { font-size: 10px; }
+  .form-grid { gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ion-background-color: #0b1e29; --ion-text-color: #e2eef4; }
+  ion-content { --background: #0b1e29; }
+  .page-intro h1 { color: #e4f3fa; }
+  .page-intro p { color: #afc5d0; }
+  ion-card.panel { --background: #14303e; background: #14303e; color: #d5e7ef; border-color: #294858; }
+  .panel-top h2, .panel h2, .info-panel h3 { color: #e3f0f5; }
+  .estimate-number { color: #b4eef2; }
+  .estimate p, .setting-help { color: #afc1cb; }
+  .science-note { background: #1d4050; color: #c9dfe7; }
+  .hint-pill, .count-pill { background: #234c5c; color: #8be1e4; }
+  .drink-tile { background: #193a49; color: #cee2ec; border-color: #355361; }
+  .drink-tile.selected { background: #13485a; color: #d5f4f8; border-color: #35a2b0; }
+  label { color: #c7d9e3; }
+  input:not([type="range"]), select { background: #193845; color: #e8f7fa; border-color: #466370; color-scheme: dark; }
+  .empty-message { color: #bed0da; background: #193948; border-color: #4c6674; }
+  .logged-detail strong, .model-settings summary { color: #e3f0f5; }
+  .logged-detail span, .info-panel p { color: #c2d1d9; }
+  .logged-drink { border-color: #345262; }
+  .app-nav ion-segment { background: #234554; }
+  .app-nav ion-segment-button { --color: #c0d4de; --background-checked: #346679; --color-checked: white; --indicator-color: #346679; }
+}
